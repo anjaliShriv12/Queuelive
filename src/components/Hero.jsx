@@ -3,7 +3,7 @@ import { ArrowRight, Play, CheckCircle2 } from "lucide-react"
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-slate-950">
-      
+
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
 
@@ -35,32 +35,49 @@ function Hero() {
           {/* Buttons */}
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
 
-            <button className="group flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-300">
+            {/* Join Queue Button */}
+            <a
+              href="#queue-preview"
+              className="group flex items-center justify-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-300"
+            >
               Join a Queue
+
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </button>
+            </a>
 
-            <button className="flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 font-semibold text-white transition hover:border-white/30 hover:bg-white/5">
+            {/* See How It Works */}
+            <a
+              href="#how-it-works"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3.5 font-semibold text-white transition hover:border-white/30 hover:bg-white/5"
+            >
               <Play size={17} />
               See how it works
-            </button>
+            </a>
 
           </div>
 
           {/* Trust points */}
           <div className="mt-9 flex flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:gap-6">
+
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={17} className="text-cyan-400" />
+              <CheckCircle2
+                size={17}
+                className="text-cyan-400"
+              />
               No physical waiting
             </div>
 
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={17} className="text-cyan-400" />
+              <CheckCircle2
+                size={17}
+                className="text-cyan-400"
+              />
               Live queue updates
             </div>
+
           </div>
 
         </div>
@@ -76,6 +93,7 @@ function Hero() {
 
             {/* Top bar */}
             <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+
               <div>
                 <p className="text-xs text-slate-500">
                   YOUR QUEUE
@@ -90,6 +108,7 @@ function Hero() {
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                 Live
               </div>
+
             </div>
 
             {/* Token */}
@@ -102,6 +121,7 @@ function Hero() {
                 </p>
 
                 <div className="mt-2 flex items-end justify-between">
+
                   <span className="text-5xl font-bold tracking-tight text-white">
                     A-24
                   </span>
@@ -109,6 +129,7 @@ function Hero() {
                   <span className="rounded-full bg-cyan-400/10 px-3 py-1.5 text-sm text-cyan-300">
                     Waiting
                   </span>
+
                 </div>
 
               </div>
@@ -117,6 +138,7 @@ function Hero() {
               <div className="mt-5 grid grid-cols-2 gap-4">
 
                 <div className="rounded-2xl border border-white/10 bg-slate-800/50 p-5">
+
                   <p className="text-sm text-slate-500">
                     People ahead
                   </p>
@@ -124,9 +146,11 @@ function Hero() {
                   <p className="mt-2 text-3xl font-bold text-white">
                     3
                   </p>
+
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-slate-800/50 p-5">
+
                   <p className="text-sm text-slate-500">
                     Estimated wait
                   </p>
@@ -134,6 +158,7 @@ function Hero() {
                   <p className="mt-2 text-3xl font-bold text-white">
                     12m
                   </p>
+
                 </div>
 
               </div>
@@ -142,6 +167,7 @@ function Hero() {
               <div className="mt-6">
 
                 <div className="mb-2 flex justify-between text-xs">
+
                   <span className="text-slate-500">
                     Queue progress
                   </span>
@@ -149,10 +175,13 @@ function Hero() {
                   <span className="text-cyan-400">
                     72%
                   </span>
+
                 </div>
 
                 <div className="h-2 overflow-hidden rounded-full bg-slate-800">
+
                   <div className="h-full w-[72%] rounded-full bg-cyan-400" />
+
                 </div>
 
               </div>
@@ -164,6 +193,7 @@ function Hero() {
         </div>
 
       </div>
+
     </section>
   )
 }

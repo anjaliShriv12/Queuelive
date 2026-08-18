@@ -11,9 +11,14 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+
       <Navbar />
 
       <Hero />
+
+      <section id="queue-preview">
+        <QueuePreview />
+      </section>
 
       <section id="how-it-works">
         <HowItWorks />
@@ -22,8 +27,6 @@ function App() {
       <section id="features">
         <Features />
       </section>
-
-      <QueuePreview />
 
       <WaitTime />
 
@@ -34,6 +37,7 @@ function App() {
       <CTA />
 
       <Footer />
+
     </div>
   )
 }
