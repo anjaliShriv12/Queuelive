@@ -12,13 +12,27 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Navbar />
+
       <Hero />
+
+      <section id="how-it-works">
+        <HowItWorks />
+      </section>
+
+      <section id="features">
+        <Features />
+      </section>
+
       <QueuePreview />
-      <HowItWorks />
-      <Features />
+
       <WaitTime />
-      <DashboardPreview />
+
+      <section id="dashboard">
+        <DashboardPreview />
+      </section>
+
       <CTA />
+
       <Footer />
     </div>
   )
