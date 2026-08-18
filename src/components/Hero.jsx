@@ -24,6 +24,10 @@ function Hero() {
             <br />
             <span className="text-cyan-400">Start living.</span>
           </h1>
+          <div className="mt-3 text-xs text-slate-700 transition hover:text-cyan-400">
+            Queue less. Live more.
+          </div>
+          
 
           {/* Description */}
           <p className="mt-7 max-w-xl text-lg leading-8 text-slate-400">
