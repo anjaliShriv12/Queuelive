@@ -1,267 +1,277 @@
-import { useState } from "react"
 import {
   Activity,
-  ArrowUpRight,
-  Clock3,
-  Users,
   Bell,
   CheckCircle2,
+  Clock3,
+  Users,
 } from "lucide-react"
+import { useState } from "react"
 
 function QueuePreview() {
   const [joined, setJoined] = useState(false)
 
+  const queueData = joined
+    ? {
+        token: "A-25",
+        position: "#5",
+        peopleAhead: 4,
+        waitTime: "15 min",
+        progress: 64,
+      }
+    : {
+        token: "A-24",
+        position: "#4",
+        peopleAhead: 3,
+        waitTime: "12 min",
+        progress: 72,
+      }
+
+  const handleQueueAction = () => {
+    setJoined((prev) => !prev)
+  }
+
   return (
-    <section className="relative overflow-hidden bg-slate-950 px-6 py-24 lg:px-8 lg:py-32">
-      
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-[#070707] px-6 py-24 lg:px-12 lg:py-32">
+      <div className="mx-auto max-w-[1500px]">
 
-        {/* Section Heading */}
-        <div className="mx-auto max-w-2xl text-center">
+        {/* Heading */}
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-[#d4af5f]" />
 
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
-            <Activity size={15} />
-            Live queue preview
+            <p className="text-xs uppercase tracking-[0.22em] text-[#d4af5f]">
+              Live queue preview
+            </p>
           </div>
 
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Know your place.
+          <h2 className="mt-6 text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl">
+            Know where you are.
             <br />
-            <span className="text-cyan-400">Before you arrive.</span>
+
+            <span className="text-[#d4af5f]">
+              Know when to arrive.
+            </span>
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-400">
-            See your position, estimated wait time, and queue movement in one
-            simple view.
+          <p className="mt-5 max-w-xl leading-8 text-[#858585]">
+            A simple view of your token, queue position and estimated
+            waiting time.
           </p>
-
         </div>
 
-        {/* Dashboard */}
-        <div className="relative mx-auto mt-16 max-w-5xl">
+        {/* Product */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
 
-          {/* Glow */}
-          <div className="absolute -inset-5 rounded-[2rem] bg-cyan-400/5 blur-3xl" />
+          {/* Main queue */}
+          <div className="rounded-2xl border border-white/10 bg-[#101010] p-6 sm:p-8 lg:p-10">
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-black/30">
-
-            {/* Dashboard Header */}
-            <div className="flex flex-col gap-4 border-b border-white/10 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            {/* Header */}
+            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
 
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
-                  QueueLive
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#666]">
+                  General Consultation
                 </p>
 
-                <h3 className="mt-1 text-lg font-semibold text-white">
+                <h3 className="mt-2 text-xl font-medium text-white">
                   CityCare Hospital
                 </h3>
               </div>
 
-              <div className="flex w-fit items-center gap-2 rounded-full bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-400">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                Queue is live
+              <div className="flex w-fit items-center gap-2 border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-xs text-emerald-400">
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+
+                Queue live
               </div>
 
             </div>
 
-            {/* Dashboard Content */}
-            <div className="grid lg:grid-cols-[1.4fr_0.8fr]">
+            {/* Token + Position */}
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
 
-              {/* Main Queue */}
-              <div className="p-6 sm:p-8">
+              {/* Token */}
+              <div className="rounded-xl border border-white/10 bg-[#0b0b0b] p-7">
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-slate-500">
-                      Department
-                    </p>
+                <p className="text-sm text-[#666]">
+                  Your token
+                </p>
 
-                    <h4 className="mt-1 text-xl font-semibold text-white">
-                      General Consultation
-                    </h4>
-                  </div>
+                <div className="mt-3 flex items-end justify-between">
 
-                  <div className="hidden rounded-xl border border-white/10 bg-slate-800/70 p-3 sm:block">
-                    <Users size={20} className="text-cyan-400" />
-                  </div>
-                </div>
+                  <p className="text-6xl font-semibold tracking-tight text-white">
+                    {queueData.token}
+                  </p>
 
-                {/* Current token */}
-                <div className="mt-8 rounded-2xl border border-white/10 bg-slate-800/50 p-6">
-
-                  <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-
-                    <div>
-                      <p className="text-sm text-slate-500">
-                        Your token
-                      </p>
-
-                      <p className="mt-2 text-5xl font-bold tracking-tight text-white">
-                        A-24
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="text-sm text-slate-500">
-                        Now serving
-                      </p>
-
-                      <p className="mt-2 text-3xl font-bold text-cyan-400">
-                        A-21
-                      </p>
-                    </div>
-
-                  </div>
-
-                  {/* Progress */}
-                  <div className="mt-7">
-
-                    <div className="mb-2 flex justify-between text-xs">
-                      <span className="text-slate-500">
-                        Queue progress
-                      </span>
-
-                      <span className="font-medium text-cyan-400">
-                        72%
-                      </span>
-                    </div>
-
-                    <div className="h-2 overflow-hidden rounded-full bg-slate-700">
-                      <div className="h-full w-[72%] rounded-full bg-cyan-400" />
-                    </div>
-
-                  </div>
-
-                </div>
-
-                {/* Stats */}
-                <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
-
-                  <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-5">
-                    <Users size={18} className="text-slate-400" />
-
-                    <p className="mt-4 text-sm text-slate-500">
-                      People ahead
-                    </p>
-
-                    <p className="mt-1 text-2xl font-bold text-white">
-                      3
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-5">
-                    <Clock3 size={18} className="text-slate-400" />
-
-                    <p className="mt-4 text-sm text-slate-500">
-                      Estimated wait
-                    </p>
-
-                    <p className="mt-1 text-2xl font-bold text-white">
-                      12 min
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-5">
-                    <Bell size={18} className="text-slate-400" />
-
-                    <p className="mt-4 text-sm text-slate-500">
-                      Notifications
-                    </p>
-
-                    <p className="mt-1 text-2xl font-bold text-white">
-                      On
-                    </p>
-                  </div>
+                  <span
+                    className={`px-3 py-1 text-xs ${
+                      joined
+                        ? "border border-emerald-400/20 bg-emerald-400/5 text-emerald-400"
+                        : "border border-[#d4af5f]/20 bg-[#d4af5f]/5 text-[#d4af5f]"
+                    }`}
+                  >
+                    {joined ? "Confirmed" : "Waiting"}
+                  </span>
 
                 </div>
 
               </div>
 
-              {/* Side Panel */}
-              <div className="border-t border-white/10 bg-slate-950/40 p-6 sm:p-8 lg:border-l lg:border-t-0">
+              {/* Position */}
+              <div className="rounded-xl border border-white/10 bg-[#0b0b0b] p-7">
 
-                <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-white">
-                    Recent tokens
-                  </h4>
+                <p className="text-sm text-[#666]">
+                  Current position
+                </p>
 
-                  <ArrowUpRight size={17} className="text-slate-500" />
-                </div>
+                <p className="mt-3 text-4xl font-semibold text-white">
+                  {queueData.position}
+                </p>
 
-                <div className="mt-6 space-y-3">
-
-                  <div className="flex items-center justify-between rounded-xl bg-slate-800/60 px-4 py-4">
-                    <span className="font-medium text-white">
-                      A-21
-                    </span>
-
-                    <span className="text-sm text-emerald-400">
-                      Serving
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between rounded-xl bg-slate-800/60 px-4 py-4">
-                    <span className="font-medium text-white">
-                      A-22
-                    </span>
-
-                    <span className="text-sm text-slate-400">
-                      Completed
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between rounded-xl bg-slate-800/60 px-4 py-4">
-                    <span className="font-medium text-white">
-                      A-23
-                    </span>
-
-                    <span className="text-sm text-slate-400">
-                      Waiting
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-4">
-                    <span className="font-semibold text-cyan-300">
-                      A-24
-                    </span>
-
-                    <span className="text-sm text-cyan-400">
-                      You
-                    </span>
-                  </div>
-
-                </div>
-
-                {/* Join Queue */}
-                <button
-                  onClick={() => setJoined(!joined)}
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-400 px-5 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-300 active:scale-[0.98]"
-                >
-                  {joined ? (
-                    <>
-                      <CheckCircle2 size={18} />
-                      You're in the queue
-                    </>
-                  ) : (
-                    "Join this queue"
-                  )}
-                </button>
-
-                <p className="mt-4 text-center text-xs leading-5 text-slate-500">
-                  Demo interaction — no real appointment is created.
+                <p className="mt-1 text-sm text-[#666]">
+                  {queueData.peopleAhead} people ahead of you
                 </p>
 
               </div>
 
             </div>
+
+            {/* Progress */}
+            <div className="mt-6 rounded-xl border border-white/10 bg-[#0b0b0b] p-6">
+
+              <div className="flex justify-between text-xs">
+
+                <span className="text-[#666]">
+                  Queue progress
+                </span>
+
+                <span className="text-[#d4af5f]">
+                  {queueData.progress}%
+                </span>
+
+              </div>
+
+              <div className="mt-4 h-1.5 rounded-full bg-[#292929]">
+
+                <div
+                  className="h-full rounded-full bg-[#d4af5f] transition-all duration-500"
+                  style={{
+                    width: `${queueData.progress}%`,
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Right information */}
+          <div className="flex flex-col gap-6">
+
+            {/* Wait time */}
+            <div className="rounded-2xl border border-white/10 bg-[#101010] p-7">
+
+              <Clock3
+                size={20}
+                className="text-[#d4af5f]"
+              />
+
+              <p className="mt-6 text-sm text-[#666]">
+                Estimated wait
+              </p>
+
+              <p className="mt-1 text-4xl font-semibold text-white">
+                {queueData.waitTime}
+              </p>
+
+            </div>
+
+            {/* People */}
+            <div className="rounded-2xl border border-white/10 bg-[#101010] p-7">
+
+              <Users
+                size={20}
+                className="text-[#d4af5f]"
+              />
+
+              <p className="mt-6 text-sm text-[#666]">
+                People ahead
+              </p>
+
+              <p className="mt-1 text-4xl font-semibold text-white">
+                {queueData.peopleAhead}
+              </p>
+
+            </div>
+
+            {/* Notification */}
+            <div
+              className={`rounded-2xl border p-7 ${
+                joined
+                  ? "border-emerald-400/20 bg-emerald-400/5"
+                  : "border-[#d4af5f]/20 bg-[#d4af5f]/5"
+              }`}
+            >
+
+              {joined ? (
+                <CheckCircle2
+                  size={20}
+                  className="text-emerald-400"
+                />
+              ) : (
+                <Bell
+                  size={20}
+                  className="text-[#d4af5f]"
+                />
+              )}
+
+              <p className="mt-5 font-medium text-white">
+                {joined
+                  ? "You're successfully in the queue"
+                  : "Notifications enabled"}
+              </p>
+
+              <p className="mt-2 text-sm leading-6 text-[#777]">
+                {joined
+                  ? `Your token is ${queueData.token}. We'll notify you when your turn is getting close.`
+                  : "You'll receive an alert when your turn is getting close."}
+              </p>
+
+            </div>
+
+            {/* Button */}
+            <button
+              onClick={handleQueueAction}
+              className={`flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-medium transition ${
+                joined
+                  ? "border border-white/10 bg-[#151515] text-white hover:bg-[#1b1b1b]"
+                  : "bg-[#d4af5f] text-black hover:bg-[#e5c878]"
+              }`}
+            >
+
+              {joined ? (
+                <>
+                  <CheckCircle2 size={18} />
+                  You're in the queue
+                </>
+              ) : (
+                <>
+                  <Activity size={18} />
+                  Join this queue
+                </>
+              )}
+
+            </button>
+
+            <p className="text-center text-[11px] text-[#555]">
+              Representative demo data — no real appointment is created.
+            </p>
 
           </div>
 
         </div>
 
       </div>
-
     </section>
   )
 }

@@ -10,34 +10,38 @@ import Footer from "./components/Footer"
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-
+    <div className="min-h-screen bg-[#070707] text-white">
       <Navbar />
 
-      <Hero />
+      <main className="lg:ml-[84px]">
+        <Hero />
 
-      <section id="queue-preview">
-        <QueuePreview />
-      </section>
+        <section id="queue-preview">
+          <QueuePreview />
+        </section>
 
-      <section id="how-it-works">
-        <HowItWorks />
-      </section>
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
 
-      <section id="features">
-        <Features />
-      </section>
+        <section id="features">
+          <Features />
+        </section>
 
-      <WaitTime />
+        <WaitTime />
 
-      <section id="dashboard">
-        <DashboardPreview />
-      </section>
+        <section id="dashboard">
+          <DashboardPreview />
+        </section>
 
-      <CTA />
+        <section id="organizations">
+         <DashboardPreview />
+        </section>
 
-      <Footer />
+        <CTA />
 
+        <Footer />
+      </main>
     </div>
   )
 }

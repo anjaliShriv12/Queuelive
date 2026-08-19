@@ -1,266 +1,169 @@
 import {
-  LayoutDashboard,
-  Users,
-  Clock3,
+  BarChart3,
   CheckCircle2,
-  MoreHorizontal,
-  ArrowUpRight,
+  Clock3,
+  LayoutDashboard,
+  Settings,
+  Users,
 } from "lucide-react"
 
-const queueRows = [
-  {
-    token: "A-21",
-    name: "Current",
-    status: "Serving",
-    wait: "Now",
-  },
-  {
-    token: "A-22",
-    name: "Next",
-    status: "Ready",
-    wait: "2 min",
-  },
-  {
-    token: "A-23",
-    name: "Waiting",
-    status: "Waiting",
-    wait: "7 min",
-  },
-  {
-    token: "A-24",
-    name: "Waiting",
-    status: "Waiting",
-    wait: "12 min",
-  },
+const rows = [
+  ["General OPD", "A-24", "3", "12 min"],
+  ["Cardiology", "B-15", "5", "18 min"],
+  ["Pharmacy", "C-09", "12", "20 min"],
+  ["Lab", "D-03", "2", "8 min"],
 ]
 
 function DashboardPreview() {
   return (
-    <section className="bg-slate-900/40 px-6 py-24 lg:px-8 lg:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-[#070707] px-6 py-24 lg:px-12 lg:py-32">
+      <div className="mx-auto max-w-[1500px]">
 
-        {/* Heading */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="grid overflow-hidden rounded-2xl border border-white/10 bg-[#101010] lg:grid-cols-[0.55fr_1.45fr]">
 
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
-            <LayoutDashboard size={15} />
-            For departments & staff
+          {/* Left content */}
+          <div className="border-b border-white/10 p-8 lg:border-b-0 lg:border-r lg:p-12">
+
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-[#d4af5f]" />
+
+              <p className="text-xs uppercase tracking-[0.2em] text-[#d4af5f]">
+                For organizations
+              </p>
+            </div>
+
+            <h2 className="mt-7 text-4xl font-semibold tracking-tight text-white">
+              Powerful dashboard
+              <br />
+              for departments.
+            </h2>
+
+            <p className="mt-5 leading-7 text-[#777]">
+              Manage queues, serve tokens, and keep everything moving
+              smoothly from one place.
+            </p>
+
+            <button className="mt-8 flex items-center gap-2 rounded-lg border border-[#d4af5f]/40 px-5 py-3 text-sm text-[#d4af5f] transition hover:bg-[#d4af5f] hover:text-black">
+              Explore dashboard
+            </button>
+
           </div>
 
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            One dashboard.
-            <br />
-            <span className="text-slate-500">
-              Complete queue control.
-            </span>
-          </h2>
+          {/* Dashboard */}
+          <div className="bg-[#0b0b0b] p-5 sm:p-7">
 
-          <p className="mt-5 text-lg leading-8 text-slate-400">
-            Staff can see the active queue, manage tokens, and keep the
-            waiting experience moving smoothly.
-          </p>
-
-        </div>
-
-        {/* Dashboard */}
-        <div className="relative mx-auto mt-16 max-w-6xl">
-
-          <div className="absolute -inset-5 rounded-[2rem] bg-cyan-400/5 blur-3xl" />
-
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-black/30">
-
-            {/* Dashboard top bar */}
-            <div className="flex flex-col gap-4 border-b border-white/10 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            {/* Dashboard header */}
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400 text-slate-950">
-                  <LayoutDashboard size={20} />
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#d4af5f] text-black">
+                  <LayoutDashboard size={18} />
                 </div>
 
                 <div>
-                  <p className="font-semibold text-white">
-                    QueueLive Dashboard
+                  <p className="font-medium text-white">
+                    QueueLive
                   </p>
 
-                  <p className="text-xs text-slate-500">
-                    General Consultation
+                  <p className="text-[10px] text-[#555]">
+                    Organization dashboard
                   </p>
                 </div>
 
               </div>
 
-              <div className="flex items-center gap-3">
-
-                <div className="flex items-center gap-2 rounded-full bg-emerald-400/10 px-3 py-1.5 text-xs text-emerald-400">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  System operational
-                </div>
-
-                <button className="hidden rounded-lg border border-white/10 p-2 text-slate-400 transition hover:bg-white/5 hover:text-white sm:block">
-                  <MoreHorizontal size={18} />
-                </button>
-
-              </div>
+              <Settings
+                size={18}
+                className="text-[#555]"
+              />
 
             </div>
 
             {/* Stats */}
-            <div className="grid border-b border-white/10 sm:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-4">
 
-              <div className="border-b border-white/10 p-6 sm:border-b-0 sm:border-r">
-                <div className="flex items-center gap-2 text-slate-500">
-                  <Users size={17} />
-                  <span className="text-sm">
-                    People waiting
-                  </span>
-                </div>
-
-                <p className="mt-3 text-3xl font-bold text-white">
-                  18
+              <div className="border border-white/10 bg-[#101010] p-4">
+                <p className="text-[10px] text-[#555]">
+                  Active queues
                 </p>
 
-                <p className="mt-1 text-xs text-emerald-400">
-                  Queue active
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  4
                 </p>
               </div>
 
-              <div className="border-b border-white/10 p-6 sm:border-b-0 sm:border-r">
-                <div className="flex items-center gap-2 text-slate-500">
-                  <Clock3 size={17} />
-                  <span className="text-sm">
-                    Average wait
-                  </span>
-                </div>
-
-                <p className="mt-3 text-3xl font-bold text-white">
-                  14 min
+              <div className="border border-white/10 bg-[#101010] p-4">
+                <p className="text-[10px] text-[#555]">
+                  Total tokens
                 </p>
 
-                <p className="mt-1 text-xs text-slate-500">
-                  Current estimate
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  128
                 </p>
               </div>
 
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-slate-500">
-                  <CheckCircle2 size={17} />
-                  <span className="text-sm">
-                    Completed today
-                  </span>
-                </div>
-
-                <p className="mt-3 text-3xl font-bold text-white">
-                  42
+              <div className="border border-white/10 bg-[#101010] p-4">
+                <p className="text-[10px] text-[#555]">
+                  Avg. wait
                 </p>
 
-                <p className="mt-1 text-xs text-slate-500">
-                  Across this department
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  14m
+                </p>
+              </div>
+
+              <div className="border border-white/10 bg-[#101010] p-4">
+                <p className="text-[10px] text-[#555]">
+                  Served today
+                </p>
+
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  96
                 </p>
               </div>
 
             </div>
 
-            {/* Queue area */}
-            <div className="p-6 sm:p-8">
+            {/* Table */}
+            <div className="mt-6 overflow-x-auto border border-white/10">
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="min-w-[650px]">
 
-                <div>
-                  <p className="text-sm text-slate-500">
-                    Active queue
-                  </p>
-
-                  <h3 className="mt-1 text-xl font-semibold text-white">
-                    Today's tokens
-                  </h3>
+                <div className="grid grid-cols-4 border-b border-white/10 px-5 py-3 text-[10px] uppercase tracking-wider text-[#555]">
+                  <span>Department</span>
+                  <span>Current token</span>
+                  <span>Waiting</span>
+                  <span>Est. wait</span>
                 </div>
 
-                <button className="flex w-fit items-center gap-2 rounded-xl bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
-                  Call next token
-                  <ArrowUpRight size={16} />
-                </button>
+                {rows.map((row) => (
+                  <div
+                    key={row[0]}
+                    className="grid grid-cols-4 items-center border-b border-white/5 px-5 py-4 text-sm last:border-0 hover:bg-white/[0.02]"
+                  >
+                    <span className="text-white">
+                      {row[0]}
+                    </span>
 
-              </div>
+                    <span className="text-[#d4af5f]">
+                      {row[1]}
+                    </span>
 
-              {/* Table */}
-              <div className="mt-7 overflow-x-auto">
+                    <span className="text-[#888]">
+                      {row[2]}
+                    </span>
 
-                <div className="min-w-[620px]">
-
-                  {/* Table header */}
-                  <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr] border-b border-white/10 px-4 pb-3 text-xs font-medium uppercase tracking-wider text-slate-600">
-                    <span>Token</span>
-                    <span>Position</span>
-                    <span>Status</span>
-                    <span>Wait</span>
+                    <span className="flex items-center gap-2 text-[#888]">
+                      {row[3]}
+                      <CheckCircle2
+                        size={14}
+                        className="text-emerald-400"
+                      />
+                    </span>
                   </div>
+                ))}
 
-                  {/* Rows */}
-                  <div className="divide-y divide-white/5">
-
-                    {queueRows.map((row) => (
-                      <div
-                        key={row.token}
-                        className={`grid grid-cols-[1fr_1.5fr_1fr_1fr] items-center px-4 py-5 transition hover:bg-white/[0.03] ${
-                          row.token === "A-24"
-                            ? "bg-cyan-400/[0.04]"
-                            : ""
-                        }`}
-                      >
-
-                        <span
-                          className={`font-semibold ${
-                            row.token === "A-24"
-                              ? "text-cyan-400"
-                              : "text-white"
-                          }`}
-                        >
-                          {row.token}
-                        </span>
-
-                        <span className="text-sm text-slate-400">
-                          {row.name}
-                        </span>
-
-                        <span>
-
-                          {row.status === "Serving" && (
-                            <span className="rounded-full bg-emerald-400/10 px-3 py-1.5 text-xs text-emerald-400">
-                              Serving
-                            </span>
-                          )}
-
-                          {row.status === "Ready" && (
-                            <span className="rounded-full bg-amber-400/10 px-3 py-1.5 text-xs text-amber-400">
-                              Ready
-                            </span>
-                          )}
-
-                          {row.status === "Waiting" && (
-                            <span className="rounded-full bg-slate-800 px-3 py-1.5 text-xs text-slate-400">
-                              Waiting
-                            </span>
-                          )}
-
-                        </span>
-
-                        <span className="text-sm text-slate-400">
-                          {row.wait}
-                        </span>
-
-                      </div>
-                    ))}
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              {/* Demo note */}
-              <div className="mt-6 rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-center text-xs text-slate-500">
-                Demo dashboard — representative queue data for the product preview.
               </div>
 
             </div>

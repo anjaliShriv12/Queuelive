@@ -1,8 +1,4 @@
-import {
-  Clock3,
-  ArrowUp,
-  ExternalLink,
-} from "lucide-react"
+import { ArrowUp, Clock3 } from "lucide-react"
 
 function Footer() {
   const scrollToTop = () => {
@@ -13,109 +9,108 @@ function Footer() {
   }
 
   return (
-    <footer className="border-t border-white/10 bg-slate-950 px-6 py-10 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <footer className="bg-[#070707] px-6 pb-8 pt-10 lg:px-12">
+      <div className="mx-auto max-w-[1500px]">
 
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-10 border-t border-white/10 pt-10 md:flex-row md:items-start md:justify-between">
 
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2.5">
+          <div className="max-w-sm">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-400 text-slate-950">
-                <Clock3 size={19} strokeWidth={2.5} />
+            <div className="flex items-center gap-3">
+
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#d4af5f] text-black">
+                <Clock3 size={18} />
               </div>
 
-              <span className="text-xl font-bold tracking-tight text-white">
-                Queue<span className="text-cyan-400">Live</span>
+              <span className="text-xl font-semibold text-white">
+                Queue<span className="text-[#d4af5f]">Live</span>
               </span>
 
             </div>
 
-            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500">
-              A virtual queue concept designed to make waiting simpler,
-              clearer, and less frustrating.
+            <p className="mt-4 text-sm leading-6 text-[#666]">
+              A virtual queue experience designed to make waiting simpler,
+              clearer and less frustrating.
             </p>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm">
-
-            <a
-              href="#queue-preview"
-              className="text-slate-500 transition hover:text-white"
-            >
-              Queue
-            </a>
-
-            <a
-              href="#how-it-works"
-              className="text-slate-500 transition hover:text-white"
-            >
-              How it works
-            </a>
-
-            <a
-              href="#features"
-              className="text-slate-500 transition hover:text-white"
-            >
-              Features
-            </a>
-
-            <a
-              href="#dashboard"
-              className="text-slate-500 transition hover:text-white"
-            >
-              Dashboard
-            </a>
 
           </div>
 
-          {/* External Links + Back to Top */}
-          <div className="flex items-center gap-3">
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-sm sm:grid-cols-3">
 
-            {/* GitHub */}
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm text-slate-500 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
-            >
-              GitHub
-              <ExternalLink size={14} />
-            </a>
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-wider text-[#444]">
+                Product
+              </p>
 
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm text-slate-500 transition hover:border-white/20 hover:bg-white/5 hover:text-white"
-            >
-              LinkedIn
-              <ExternalLink size={14} />
-            </a>
+              <div className="space-y-3">
+                <a href="#how-it-works" className="block text-[#777] hover:text-white">
+                  How it works
+                </a>
 
-            {/* Back to top */}
-            <button
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-slate-500 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-400"
-            >
-              <ArrowUp size={18} />
-            </button>
+                <a href="#features" className="block text-[#777] hover:text-white">
+                  Features
+                </a>
+
+                <a href="#dashboard" className="block text-[#777] hover:text-white">
+                  Dashboard
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-wider text-[#444]">
+                Company
+              </p>
+
+              <div className="space-y-3">
+                <span className="block text-[#777]">
+                  About
+                </span>
+
+                <span className="block text-[#777]">
+                  Contact
+                </span>
+
+                <span className="block text-[#777]">
+                  For organizations
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-wider text-[#444]">
+                Legal
+              </p>
+
+              <div className="space-y-3">
+                <span className="block text-[#777]">
+                  Privacy
+                </span>
+
+                <span className="block text-[#777]">
+                  Terms
+                </span>
+
+                <button
+                  onClick={scrollToTop}
+                  className="flex items-center gap-2 text-[#777] hover:text-[#d4af5f]"
+                >
+                  Back to top
+                  <ArrowUp size={13} />
+                </button>
+              </div>
+            </div>
 
           </div>
 
         </div>
 
-        {/* Bottom */}
         <div className="mt-10 border-t border-white/5 pt-6">
-
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-[#444]">
             © 2026 QueueLive. Product concept built for demonstration.
           </p>
-
         </div>
 
       </div>
